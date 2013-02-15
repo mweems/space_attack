@@ -8,6 +8,10 @@ class Spaceship
 		@defense = defense
 	end
 
+	def to_s
+		"(attack:#{@attack} defense: #{@defense})\n"
+	end
+
 	def attack_ship!(defender)
 		return true if defender.attack == 0
 		attacker_shots = Spaceship.calculate_shots(attack, defender.defense)
