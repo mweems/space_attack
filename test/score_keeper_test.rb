@@ -46,4 +46,13 @@ class ScoreKeeperTest < Test::Unit::TestCase
 		assert_empty result.attacker_remaining_ships 
 		assert_equal [defender], result.defender_remaining_ships
 	end
+
+	def test_multiple_attackers_kill_single_defender
+		attacker1 = Spaceship.new(2,2)
+		attacker2 = Spaceship.new(1,2)
+		defender = Spaceship.new(1,5)
+		result = ScoreKeeper.score([attacker1, attacker2], [defender])
+		assert_equal [attacker2], result.attacker_remaining_ships 
+		assert_empty result.defender_remaining_ships
+	end
 end
