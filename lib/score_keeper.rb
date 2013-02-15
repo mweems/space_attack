@@ -9,13 +9,21 @@ class ScoreKeeper
 	def self.resolve_battles(attacker_ships, defender_ships)
 		attacker = attacker_ships.first
 		defender = defender_ships.first
+		return [attacker_ships, defender_ships] if attacker.nil? || defender.nil?
 
-		if(attacker.nil? || defender.nil?)
-			[attacker_ships, defender_ships]
-		elsif attacker.attack_ship!(defender)
-			resolve_battles(attacker_ships, defender_ships.drop(1))
-		else
-			resolve_battles(attacker_ships.drop(1), defender_ships)
+		while(attacker.alive? && defender.alive?)
+			attacker.engage(defender)
+			defender.engage(attacker)
 		end
+
+		if attacker.alive? && !defender.alive?
+			resolve_battles(attacker_ships, defender_ships.drop(1))
+		elsif !attacker.alive? && defender.alive?
+			resolve_battles(attacker_ships.drop(1), defender_ships)
+		else
+			resolve_battles(attacker_ships.drop(1), defender_ships.drop(1))
+		end
+
+
 	end
 end 
