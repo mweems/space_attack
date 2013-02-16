@@ -40,4 +40,6 @@ class SpaceshipTest < Test::Unit::TestCase
 		ship.engage(enemy2)
 		assert_equal 0, enemy2.defense
 	end
+
+	
 end
