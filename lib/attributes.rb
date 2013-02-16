@@ -42,4 +42,15 @@ module Attributes
 			end
 		end
 	end
+
+	module Assimilate
+		def engage(enemy)
+			if rand < 0.2
+				enemy.dead!
+				fleet.push(enemy.class.new)
+			else
+				super
+			end
+		end
+	end
 end

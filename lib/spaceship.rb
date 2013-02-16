@@ -1,9 +1,9 @@
 class Spaceship
 
 	attr_reader :attack
-	attr_accessor :defense
+	attr_accessor :defense, :fleet
 
-	def initialize(attack, defense)
+	def initialize(attack=1, defense=1)
 		@attack = attack
 		@defense = defense
 	end
