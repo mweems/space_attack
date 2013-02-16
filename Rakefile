@@ -35,16 +35,8 @@ task :play_single_game do
 end
 
 def play_random_game
-	attackers = [Ships::TieFighter.new, Ships::XWing.new, Ships::MilleniumFalcon.new, 
-				 Ships::BattleCruiser.new, Ships::DeathStar.new].shuffle
-
-	defenders = [Ships::TieFighter.new, Ships::XWing.new, Ships::StarshipEnterprise.new,
-				 Ships::BattleCruiser.new, Ships::BorgCube.new].shuffle
-
-	attackers = [Ships::BorgCube.new]
-	death_star = Ships::DeathStar.new
-	death_star.extend(Attributes::Assimilate)
-	defenders = [death_star]
+	attackers = FleetBuilder.build(["DeathStar"])
+	defenders = FleetBuilder.build(["BorgCube"])
 	attackers.each { |ship| ship.fleet = attackers}
 	defenders.each { |ship| ship.fleet = defenders}
 

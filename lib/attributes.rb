@@ -35,7 +35,7 @@ module Attributes
 
 	module SuperShot
 		def engage(enemy)
-			if @current_enemy == enemy && rand < 0.15
+			if @current_enemy == enemy && rand < 0.22
 				enemy.dead!
 			else
 				super
@@ -45,7 +45,7 @@ module Attributes
 
 	module Assimilate
 		def engage(enemy)
-			if rand < 0.15
+			if rand < 0.03
 				enemy.dead!
 				new_ship = enemy.class.new
 				new_ship.fleet = fleet
