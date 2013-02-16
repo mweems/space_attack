@@ -11,3 +11,16 @@
  *= require_self
  *= require_tree .
  */
+
+.player_input {
+	float: left;
+	margin-left: 40px;
+}
+
+.first_player_input {
+	margin-left: 0px;
+}
+
+.buttons {
+	clear: both;
+}
