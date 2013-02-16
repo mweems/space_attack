@@ -9,7 +9,7 @@ class Spaceship
 	end
 
 	def to_s
-		"(attack:#{@attack} defense: #{@defense})\n"
+		"#{self.class} - (attack:#{@attack} defense: #{@defense})"
 	end
 
 	def alive?
