@@ -70,4 +70,16 @@ class ScoreKeeperTest < Test::Unit::TestCase
 		assert_equal [attacker], result.attacker_remaining_ships 
 		assert_empty result.defender_remaining_ships
 	end
+
+	def test_ships_fleets_match_the_resulting_fleet
+		attacker = Spaceship.new(1,1)
+		defender = Spaceship.new(1,1)
+		attackers = [attacker]
+		defenders = [defender]
+		attacker.fleet = attackers
+		defender.fleet = defenders
+		result = ScoreKeeper.score(attackers, defenders)
+		assert_equal true, attacker.fleet == result.attacker_remaining_ships 
+		assert_equal true, defender.fleet == result.defender_remaining_ships
+	end
 end

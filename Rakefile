@@ -12,7 +12,7 @@ end
 task :check_balance do
 	attacker_wins = 0
 	defender_wins = 0
-	1000.times do
+	10000.times do
 		new_game = play_random_game
 		attacker_wins = attacker_wins + 1 if new_game.winner == :attacker
 		defender_wins = defender_wins + 1 if new_game.winner == :defender
@@ -35,12 +35,23 @@ task :play_single_game do
 end
 
 def play_random_game
-	attackers = (1..10).map do 
-		Spaceship.new(rand(6) + 1,rand(6))
-	end
-	defenders = (1..10).map do
-		Spaceship.new(rand(14),rand(13))
-	end
+	attackers = [Ships::TieFighter.new, Ships::XWing.new, Ships::MilleniumFalcon.new, 
+				 Ships::BattleCruiser.new, Ships::DeathStar.new].shuffle
+
+	defenders = [Ships::TieFighter.new, Ships::XWing.new, Ships::StarshipEnterprise.new,
+				 Ships::BattleCruiser.new, Ships::BorgCube.new].shuffle
+
+	attackers = [Ships::BorgCube.new]
+	death_star = Ships::DeathStar.new
+	death_star.extend(Attributes::Assimilate)
+	defenders = [death_star]
+	attackers.each { |ship| ship.fleet = attackers}
+	defenders.each { |ship| ship.fleet = defenders}
+
+	#p death_star.fleet
+
+
 	ScoreKeeper.score(attackers, defenders)
+	
 end	
 

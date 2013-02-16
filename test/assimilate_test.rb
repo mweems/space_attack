@@ -36,7 +36,6 @@ class AssimilateTest < Test::Unit::TestCase
 	end
 
 	def test_assimilate_recieves_ship_equal_to_enemy_ship
-		assimilated = 0
 		100.times do
 			attacker = Spaceship.new(1,1)
 			attacker.extend(Attributes::Assimilate)
@@ -50,5 +49,21 @@ class AssimilateTest < Test::Unit::TestCase
 				return
 			end
 		end
+	end
+
+	def test_assimilate_adds_fleet_reference_to_assimilated_ship
+			100.times do
+				attacker = Spaceship.new(1,1)
+				attacker.extend(Attributes::Assimilate)
+				attacker_fleet = [attacker]
+				attacker.fleet = attacker_fleet
+				defender = Ships::XWing.new
+				attacker.engage(defender)
+				if(attacker_fleet.length == 2)
+					new_ship = (attacker_fleet - [attacker]).first
+					assert_equal attacker.fleet, new_ship.fleet
+					return
+				end
+			end
 	end
 end

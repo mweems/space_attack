@@ -4,7 +4,7 @@ module Ships
 		include Attributes::Evade
 
 		def initialize
-			super(10,8)
+			super(8, 8)
 		end
 	end
 end

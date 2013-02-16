@@ -15,8 +15,8 @@ module Attributes
 
 	module Charge
 		def deal_damage!(damage, enemy)
-			if rand < 0.2
-				@defense = @defense + damage
+			if rand < 0.15
+				@defense = @defense + damage / 2
 			else
 				super	
 			end
@@ -35,7 +35,7 @@ module Attributes
 
 	module SuperShot
 		def engage(enemy)
-			if @current_enemy == enemy && rand < 0.2
+			if @current_enemy == enemy && rand < 0.15
 				enemy.dead!
 			else
 				super
@@ -45,9 +45,11 @@ module Attributes
 
 	module Assimilate
 		def engage(enemy)
-			if rand < 0.2
+			if rand < 0.15
 				enemy.dead!
-				fleet.push(enemy.class.new)
+				new_ship = enemy.class.new
+				new_ship.fleet = fleet
+				fleet.push(new_ship)
 			else
 				super
 			end

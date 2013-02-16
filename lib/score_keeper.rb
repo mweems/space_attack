@@ -17,11 +17,15 @@ class ScoreKeeper
 		end
 
 		if attacker.alive? && !defender.alive?
-			resolve_battles(attacker_ships, defender_ships.drop(1))
+			defender_ships.shift
+			resolve_battles(attacker_ships, defender_ships)
 		elsif !attacker.alive? && defender.alive?
-			resolve_battles(attacker_ships.drop(1), defender_ships)
+			attacker_ships.shift
+			resolve_battles(attacker_ships, defender_ships)
 		else
-			resolve_battles(attacker_ships.drop(1), defender_ships.drop(1))
+			attacker_ships.shift
+			defender_ships.shift
+			resolve_battles(attacker_ships, defender_ships)
 		end
 
 
