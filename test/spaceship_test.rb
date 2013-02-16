@@ -12,7 +12,8 @@ class SpaceshipTest < Test::Unit::TestCase
 
 	def test_space_ship_receives_damage
 		ship = Spaceship.new(0,1)
-		ship.deal_damage!(1)
+		enemy = Spaceship.new(0,1)
+		ship.deal_damage!(1,enemy)
 		assert_equal 0, ship.defense
 	end
 
@@ -41,5 +42,5 @@ class SpaceshipTest < Test::Unit::TestCase
 		assert_equal 0, enemy2.defense
 	end
 
-	
+
 end

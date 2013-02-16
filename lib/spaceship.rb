@@ -16,7 +16,7 @@ class Spaceship
 		@defense > 0
 	end
 
-	def deal_damage!(damage)
+	def deal_damage!(damage, enemy)
 		@defense = @defense - damage
 	end
 
@@ -24,7 +24,7 @@ class Spaceship
 		if @current_enemy != enemy
 			@current_enemy = enemy
 		else
-			enemy.deal_damage!(@attack)
+			enemy.deal_damage!(@attack, self)
 		end
 	end
 end

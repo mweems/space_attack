@@ -2,7 +2,7 @@ require 'test/unit'
 require 'space_attack'
 
 class InvincibleShip < Spaceship
-	def deal_damage!(damage)
+	def deal_damage!(damage, enemy)
 	end
 end
 
