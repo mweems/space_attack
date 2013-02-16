@@ -35,7 +35,7 @@ module Attributes
 
 	module SuperShot
 		def engage(enemy)
-			if @current_enemy == enemy
+			if @current_enemy == enemy && rand < 0.2
 				enemy.dead!
 			else
 				super
