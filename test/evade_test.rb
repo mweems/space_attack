@@ -12,7 +12,17 @@ class EvadeTest < Test::Unit::TestCase
 			return if ship.alive?
 		end
 		fail "ship never evaded the enemy"
-
 	end
-
+	
+	def test_evade_sometimes_doesnt_avoid_damage
+		100.times do 
+			ship = Spaceship.new(1,1)
+			ship.extend(Attributes::Evade)
+			enemy = Spaceship.new(1,1)
+			enemy.engage(ship)
+			enemy.engage(ship)
+			return if !ship.alive?
+		end
+		fail "ship always evaded the enemy"
+	end
 end
