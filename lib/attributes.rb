@@ -12,4 +12,14 @@ module Attributes
 			end
 		end
 	end
+
+	module Charge
+		def deal_damage!(damage)
+			if rand < 0.2
+				@defense = @defense + damage
+			else
+				@defense = @defense - damage
+			end
+		end
+	end
 end
