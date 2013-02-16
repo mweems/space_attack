@@ -8,7 +8,7 @@ module Attributes
 	module Evade
 		def deal_damage!(damage, enemy)
 			if rand < 0.5
-				@defense = @defense - damage
+				super
 			end
 		end
 	end
@@ -18,7 +18,7 @@ module Attributes
 			if rand < 0.2
 				@defense = @defense + damage
 			else
-				@defense = @defense - damage
+				super	
 			end
 		end
 	end
@@ -28,8 +28,18 @@ module Attributes
 			if damage >= @defense && rand < 0.2
 				enemy.deal_damage!(@attack * 2, self)
 			else
-				@defense = @defense - damage
+				super
 			end
 		end
 	end	
+
+	module SuperShot
+		def engage(enemy)
+			if rand < 0.05 && @current_enemy == enemy 
+				enemy.dead!
+			else
+				super
+			end
+		end
+	end
 end

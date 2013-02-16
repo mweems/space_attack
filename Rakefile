@@ -43,3 +43,4 @@ def play_random_game
 	end
 	ScoreKeeper.score(attackers, defenders)
 end	
+

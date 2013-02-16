@@ -16,6 +16,10 @@ class Spaceship
 		@defense > 0
 	end
 
+	def dead!
+		@defense = 0
+	end
+
 	def deal_damage!(damage, enemy)
 		@defense = @defense - damage
 	end
