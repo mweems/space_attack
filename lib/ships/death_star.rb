@@ -1,9 +1,10 @@
 module Ships
 	class DeathStar < Spaceship
 		include Attributes::SuperShot
-
+			ATTACK = 8
+			DEFENSE = 30
 		def initialize
-			super(8, 30)
+			super(ATTACK, DEFENSE)
 		end
 	end
 end

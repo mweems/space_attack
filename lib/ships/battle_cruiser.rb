@@ -1,8 +1,9 @@
 module Ships
 	class BattleCruiser < Spaceship
-
+		ATTACK = 6
+		DEFENSE = 25
 		def initialize
-			super(6, 25)
+			super(ATTACK, DEFENSE)
 		end
 	end
 end

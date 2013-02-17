@@ -1,18 +1,60 @@
+<h3>Available Ships</h3>
+<table>
+	<tr>
+		<th>&nbsp;</th>
+		<th>Ship</th>
+		<th>Attack</th>
+		<th>Defense</th>
+	</tr>
+<% ship_descriptors.each do |ship_descriptor| %>
+	<tr>
+		<td><a href="#" class="add_ship" id="<%= ship_descriptor.display_name %>">Add ship</a></td>
+		<td><%= ship_descriptor.display_name %></td>
+		<td><%= ship_descriptor.attack %></td>
+		<td><%= ship_descriptor.defense %></td>
+	</tr>
+<% end %>
+</table>
 <form action="fight">
 	<div>
 		<div class="player_input first_player_input">
 			<h3>Player 1</h3>
 			<h4>Ships</h4>
-			<textarea name="player_1_ships" rows="10"></textarea>
+			<textarea readonly id="player_1_ships" name="player_1_ships" rows="10"></textarea>
 		</div>
 		<div class="player_input">
 			<h3>Player 2</h3>
 			<h4>Ships</h4>
-			<textarea name="player_2_ships" rows="10"></textarea>
+			<textarea readonly id="player_2_ships" name="player_2_ships" rows="10"></textarea>
 		</div>
 	</div>
 	<div class="buttons">
 		<input type="submit" value="Fight!"/>
+		<input type="button" value="Clear" id="clear_button"/>
 	</div>
 
 </form>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	var player_1_ships = $("#player_1_ships");
+	var player_2_ships = $("#player_2_ships");
+	var current_player_ships = player_1_ships;
+
+	$("a.add_ship").click(function() {
+		var current_ships = current_player_ships.text();
+		current_player_ships.text(current_ships + this.id + "\n");
+
+		if(current_player_ships == player_1_ships) {
+			current_player_ships = player_2_ships;
+		} else {
+			current_player_ships = player_1_ships;
+		}
+	});
+
+	$("#clear_button").click(function() {
+		player_1_ships.text("");
+		player_2_ships.text("");
+	});
+});
+</script>

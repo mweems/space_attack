@@ -1,11 +1,10 @@
-
-task :check_balance do
+task :check_balance => :environment do
 	attacker_wins = 0
 	defender_wins = 0
 	10000.times do
 		new_game = play_random_game
-		attacker_wins = attacker_wins + 1 if new_game.winner == :attacker
-		defender_wins = defender_wins + 1 if new_game.winner == :defender
+		attacker_wins = attacker_wins + 1 if new_game.winner == :player_1
+		defender_wins = defender_wins + 1 if new_game.winner == :player_2
 	end
 
 	puts "Attacker wins: #{attacker_wins}"

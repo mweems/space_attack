@@ -1,8 +1,9 @@
 module Ships
 	class TieFighter < Spaceship
-
+		ATTACK = 5
+		DEFENSE = 8
 		def initialize
-			super(5,8)
+			super(ATTACK, DEFENSE)
 		end
 	end
 end

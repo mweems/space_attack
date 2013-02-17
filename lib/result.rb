@@ -7,7 +7,7 @@ class Result
 	end
 
 	def winner
-		return :attacker if attacker_remaining_ships.length > 0
-		:defender
+		return :player_1 if attacker_remaining_ships.length > 0
+		:player_2
 	end
 end
