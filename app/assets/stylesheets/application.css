@@ -21,6 +21,19 @@
 	margin-left: 0px;
 }
 
-.buttons {
-	clear: both;
+.stats {
+	font-size: larger;
+	text-align: center;
+
+}
+
+img.ship_image {
+	height: 100px;
+	width: 100px;
+
+}
+
+table.ships {
+	float: left;
+
 }

@@ -1,17 +1,19 @@
 <h3>Available Ships</h3>
-<table>
+<table class="ships">
 	<tr>
-		<th>&nbsp;</th>
 		<th>Ship</th>
 		<th>Attack</th>
 		<th>Defense</th>
 	</tr>
 <% ship_descriptors.each do |ship_descriptor| %>
 	<tr>
-		<td><a href="#" class="add_ship" id="<%= ship_descriptor.display_name %>">Add ship</a></td>
-		<td><%= ship_descriptor.display_name %></td>
-		<td><%= ship_descriptor.attack %></td>
-		<td><%= ship_descriptor.defense %></td>
+		<td>
+			<img class="ship_image" src="<%="/images/#{ship_descriptor.display_name}.jpg" %>" id="<%= ship_descriptor.display_name %>"></img>
+			<br>
+			<%= ship_descriptor.display_name %>
+		</td>
+		<td><p class="stats"><%= ship_descriptor.attack %></p></td>
+		<td><p class="stats"><%= ship_descriptor.defense %></p></td>
 	</tr>
 <% end %>
 </table>
@@ -27,11 +29,12 @@
 			<h4>Ships</h4>
 			<textarea readonly id="player_2_ships" name="player_2_ships" rows="10"></textarea>
 		</div>
-	</div>
+	
 	<div class="buttons">
 		<input type="submit" value="Fight!"/>
 		<input type="button" value="Clear" id="clear_button"/>
 	</div>
+</div>
 
 </form>
 
@@ -41,7 +44,7 @@ $(document).ready(function() {
 	var player_2_ships = $("#player_2_ships");
 	var current_player_ships = player_1_ships;
 
-	$("a.add_ship").click(function() {
+	$("img.ship_image").click(function() {
 		var current_ships = current_player_ships.text();
 		current_player_ships.text(current_ships + this.id + "\n");
 
