@@ -1,5 +1,5 @@
-require 'test/unit'
-require 'space_attack'
+require 'test_helper'
+
 
 class SpaceshipTest < Test::Unit::TestCase
 	def test_space_ship_with_defense_is_alive

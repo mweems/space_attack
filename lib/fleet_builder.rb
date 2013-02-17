@@ -1,5 +1,6 @@
 class FleetBuilder
 	def self.build(ships)
-		ships.map { |ship| Ships.const_get(ship).new}
+		fleet = ships.map { |ship| Ships.const_get(ship).new }
+		fleet.each { |ship| ship.fleet = fleet }
 	end
 end

@@ -1,5 +1,4 @@
-require 'test/unit'
-require 'space_attack'
+require 'test_helper'
 
 class EvadeTest < Test::Unit::TestCase
 	def test_evade_avoids_damages_some_times

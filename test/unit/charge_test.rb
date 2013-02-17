@@ -1,5 +1,4 @@
-require 'test/unit'
-require 'space_attack'
+require 'test_helper'
 
 class ChargeTest < Test::Unit::TestCase
 	def test_charge_increases_defense_sometimes

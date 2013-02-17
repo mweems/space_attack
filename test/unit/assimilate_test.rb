@@ -1,5 +1,5 @@
-require 'test/unit'
-require 'space_attack'
+
+require 'test_helper'
 
 class AssimilateTest < Test::Unit::TestCase
 	def test_assimilate_sometimes_adds_another_ship_to_attackers_fleet

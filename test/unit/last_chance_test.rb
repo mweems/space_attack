@@ -1,5 +1,5 @@
-require 'test/unit'
-require 'space_attack'
+require 'test_helper'
+
 
 class LastChanceTest < Test::Unit::TestCase
 	def test_last_chance_test_saves_the_ship

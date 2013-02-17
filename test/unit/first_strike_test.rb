@@ -1,6 +1,4 @@
-require 'test/unit'
-require 'space_attack'
-
+require 'test_helper'
 
 class FirstStrikeTest < Test::Unit::TestCase
 	def test_first_strike_engages_enemy_immediately

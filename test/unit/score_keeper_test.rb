@@ -1,5 +1,5 @@
-require 'test/unit'
-require 'space_attack'
+require 'test_helper'
+
 
 class InvincibleShip < Spaceship
 	def deal_damage!(damage, enemy)
