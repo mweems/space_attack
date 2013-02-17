@@ -1,7 +1,7 @@
-class ScoreKeeper
-	def self.score(attacker_ships, defender_ships)
+class GameEngine
+	def self.fight(attacker_ships, defender_ships)
 		remaining_attackers, remaining_defenders = resolve_battles(attacker_ships, defender_ships)
-		Result.new(0,0, remaining_attackers, remaining_defenders)
+		Result.new(remaining_attackers, remaining_defenders)
 	end
 
 	private

@@ -33,5 +33,5 @@ def play_random_game
 	#p death_star.fleet
 
 
-	ScoreKeeper.score(attackers, defenders)
+	GameEngine.fight(attackers, defenders)
 end	
