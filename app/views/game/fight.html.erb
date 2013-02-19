@@ -1,1 +1,9 @@
 Yay!  <%= @result.winner %> wins!
+<br/>
+Ships <br/>
+<% @result.winning_ships.each do |ship_descriptor| %>
+<%ship = ShipDescriptor.new(ship_descriptor.class) %>
+<img class="ship_image" src="<%="/images/#{ship.display_name}.jpg" %>" %>"></img>
+<p>Attack - <%= ship_descriptor.attack %></p>
+<p>Defense - <%= ship_descriptor.attack %></p>
+<%end%>
