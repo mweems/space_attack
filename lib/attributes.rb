@@ -15,8 +15,14 @@ module Attributes
 
 	module Charge
 		def deal_damage!(damage, enemy)
+			
 			if rand < 0.15
-				@defense = @defense + damage / 2
+				@defense = @defense + (damage / 2)
+				if @defense > @start_defense
+					@defense = @start_defense
+				else
+					@defense
+				end
 			else
 				super	
 			end

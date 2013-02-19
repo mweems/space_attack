@@ -6,8 +6,10 @@ class Result
 		@defender_remaining_ships = defender_remaining_ships
 	end
 
-	def winner
-		return :player_1 if attacker_remaining_ships.length > 0
-		:player_2
+	def winner	
+		x = @attacker_remaining_ships#.to_s /Ships::\w*/
+						 
+		return "Player 1" if attacker_remaining_ships.length > 0
+		"Player 2"
 	end
 end
