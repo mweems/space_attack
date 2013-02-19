@@ -33,6 +33,7 @@
 	<div class="buttons">
 		<input type="submit" value="Fight!"/>
 		<input type="button" value="Clear" id="clear_button"/>
+		<input type="button" value="Player 1 finished" id="select"/>
 	</div>
 </div>
 
@@ -48,6 +49,10 @@ $(document).ready(function() {
 		var current_ships = current_player_ships.text();
 		current_player_ships.text(current_ships + this.id + "\n");
 
+		
+	});
+
+	$("#select").click(function() {
 		if(current_player_ships == player_1_ships) {
 			current_player_ships = player_2_ships;
 		} else {
